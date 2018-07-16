@@ -1,8 +1,10 @@
+dist: trusty
+sudo: false
 language: csharp
 solution: BrainfuckCompilerInterpreter.sln
 install:
   - nuget restore BrainfuckCompilerInterpreter.sln
   - nuget install NUnit.Runners -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release BrainfuckCompilerInterpreter.sln
+  - msbuild /p:Configuration=Release BrainfuckCompilerInterpreter.sln
   - mono ./testrunner/NUnit.Console.*/tools/nunit3-console.exe ./Tests/bin/Release/Tests.dll
