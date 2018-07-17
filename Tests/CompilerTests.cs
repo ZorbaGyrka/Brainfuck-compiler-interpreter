@@ -18,7 +18,7 @@ namespace Tests
                 var output = CompileAndExecute("-[----->+<]>--.");
                 Assert.That(output, Is.EqualTo("1"));
             }
-            catch (DllNotFoundException e)
+            catch (EntryPointNotFoundException)
             {
 
             }
@@ -32,7 +32,7 @@ namespace Tests
                 var output = CompileAndExecute("++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>++.>+.+++++++..+++.<<++.>+++++++++++++++.>.+++.------.--------.<<+.<");
                 Assert.That(output, Is.EqualTo("Hello World!"));
             }
-            catch (DllNotFoundException e)
+            catch (EntryPointNotFoundException)
             {
 
             }
@@ -46,7 +46,7 @@ namespace Tests
                 var output = CompileAndExecute(",.,.,.", "123");
                 Assert.That(output, Is.EqualTo("123"));
             }
-            catch (DllNotFoundException e)
+            catch (EntryPointNotFoundException) 
             {
 
             }
@@ -60,7 +60,7 @@ namespace Tests
                 var output = CompileAndExecute("+[->,----------]<[+++++++++++.<]", "123\n");
                 Assert.That(output, Is.EqualTo("321"));
             }
-            catch (DllNotFoundException e)
+            catch (EntryPointNotFoundException)
             {
 
             }
