@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BrainfuckCompilerInterpreter
 {
-    public partial class Brainfuck
+    public partial class Compiler
     {
         /*
 			> 	increment the data pointer (to point to the next cell to the right).

@@ -13,21 +13,21 @@ namespace Tests
         [Test]
         public void OutputOne()
         {
-            var output = Brainfuck.Interpret("-[----->+<]>--.");
+            var output = Compiler.Interpret("-[----->+<]>--.");
             Assert.That(output, Is.EqualTo("1"));
         }
 
         [Test]
         public void OutputHelloWorld()
         {
-            var output = Brainfuck.Interpret("++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>++.>+.+++++++..+++.<<++.>+++++++++++++++.>.+++.------.--------.<<+.<");
+            var output = Compiler.Interpret("++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>++.>+.+++++++..+++.<<++.>+++++++++++++++.>.+++.------.--------.<<+.<");
             Assert.That(output, Is.EqualTo("Hello World!"));
         }
 
         [Test]
         public void OutputInput()
         {
-            var output = Brainfuck.Interpret(",.,.,.", "123");
+            var output = Compiler.Interpret(",.,.,.", "123");
             Assert.That(output, Is.EqualTo("123"));
         }
 
@@ -35,7 +35,7 @@ namespace Tests
         [Test]
         public void OutputReverse()
         {
-            var output = Brainfuck.Interpret("+[->,----------]<[+++++++++++.<]", "123\n");
+            var output = Compiler.Interpret("+[->,----------]<[+++++++++++.<]", "123\n");
             Assert.That(output, Is.EqualTo("321"));
         }
     }
