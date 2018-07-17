@@ -124,7 +124,7 @@ namespace BrainfuckCompilerInterpreter
                         case '<':
                             bytecode.Add(0x48);       //                   dec    eax
                             break;
-                        case '+': 
+                        case '+':
                             bytecode.AddRange(new List<byte> {
                                 0xfe, 0x00, //                  inc BYTE PTR[eax]
                             });
@@ -154,8 +154,8 @@ namespace BrainfuckCompilerInterpreter
                             });
                             break;
                         case '[':
-                                jumpsToFill.Add(bytecode.Count);
-                                bytecode.AddRange(new List<byte> {
+                            jumpsToFill.Add(bytecode.Count);
+                            bytecode.AddRange(new List<byte> {
                                     0x80, 0x38, 0x00, //                cmp    BYTE PTR [eax],0x0
                                     0x0f, 0x84, 0x74, 0x56, 0x34, 0x12, //      je     1234567d <_main+0x1234567d>
                                 });
@@ -183,7 +183,7 @@ namespace BrainfuckCompilerInterpreter
                     bytecode[jump + 7] = ((byte)((relativeJumpOffset >> 16) & 0xff));
                     bytecode[jump + 8] = ((byte)((relativeJumpOffset >> 24) & 0xff));
                 }
-               
+
                 // mov eax, outputAddress
                 bytecode.Add(0xb8);
                 bytecode.Add((byte)(outputAddress & 0xff));
